@@ -206,8 +206,8 @@ void EXTI0_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_IRQn 0 */
 	
 	
-	//This peice of code checks to ensure the pin is really pressed and it's not a software glitch
-	for (int n=0;n<1000000;n++); //this loop is used to make a software delay, remove optimization for this to work
+  //This peice of code is for debouncing the mechanical contact of the switch and/or eliminating any external glitch
+  for (int n=0;n<1000000;n++); //this loop is used to make a software delay, remove optimization for this to work
   if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) //check to ensure pin is pressed
 	{
 		a++; //increment a
